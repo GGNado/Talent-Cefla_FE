@@ -1,0 +1,215 @@
+<div class="dashboard-container">
+  <!-- Main Content -->
+  <main class="content-area">
+    <!-- Header -->
+    <header class="header">
+      <h1>Panoramica Vendite</h1>
+      <div class="header-actions">
+        <button class="icon-btn"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg></button>
+        <button class="icon-btn"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg></button>
+        <div class="user-profile">
+          <img src="https://ui-avatars.com/api/?name=Luigi+Massa&background=0D8ABC&color=fff" alt="User Avatar">
+        </div>
+      </div>
+    </header>
+
+    <!-- KPI Cards -->
+    <section class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-icon blue">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"></rect><line x1="2" y1="10" x2="22" y2="10"></line></svg>
+        </div>
+        <div class="kpi-content">
+          <p class="kpi-label">RICAVI TOTALI</p>
+          <h2 class="kpi-value">{{ summary?.totalRevenue | currency:'EUR':'symbol':'1.0-0' }}</h2>
+        </div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-icon purple">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+        </div>
+        <div class="kpi-content">
+          <p class="kpi-label">ORDINI TOTALI</p>
+          <h2 class="kpi-value">{{ summary?.totalOrders }}</h2>
+        </div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-icon orange">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+        </div>
+        <div class="kpi-content">
+          <p class="kpi-label">VALORE MEDIO ORDINE</p>
+          <h2 class="kpi-value">{{ summary?.averageMargin | currency:'EUR':'symbol':'1.0-0' }}</h2>
+        </div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-icon green">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><polyline points="16 11 18 13 22 9"></polyline></svg>
+        </div>
+        <div class="kpi-content">
+          <p class="kpi-label">CLIENTI</p>
+          <h2 class="kpi-value">{{ summary?.uniqueCustomers }}</h2>
+        </div>
+      </div>
+    </section>
+
+    <!-- Methodology Info -->
+    <section class="methodology-grid">
+      <div class="methodology-card blue">
+        <div class="methodology-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path><path d="M22 12A10 10 0 0 0 12 2v10z"></path></svg>
+        </div>
+        <div class="methodology-content">
+          <h4>Simulazione Monte Carlo</h4>
+          <p>L'<strong>area azzurra sfumata</strong> rappresenta 1.000 scenari possibili: il bordo superiore è il miglior scenario realistico, quello inferiore è la soglia minima di sicurezza. Più l'area è stretta, più la previsione è affidabile.</p>
+        </div>
+      </div>
+
+      <div class="methodology-card green">
+        <div class="methodology-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg>
+        </div>
+        <div class="methodology-content">
+          <h4>Proiezione Stagionale</h4>
+          <p>La <strong>linea blu tratteggiata</strong> indica i ricavi previsti, mentre la <strong>linea verde tratteggiata</strong> indica l'utile netto previsto. Il sistema adatta la curva basandosi sui picchi storici (es. Novembre forte, Agosto debole).</p>
+        </div>
+      </div>
+
+      <div class="methodology-card red">
+        <div class="methodology-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+        </div>
+        <div class="methodology-content">
+          <h4>Analisi del Churn</h4>
+          <p>Monitora la salute dei tuoi clienti. Se un cliente non ordina da tempo rispetto alla sua media, il rischio sale. <strong>Barra Rossa (>75%)</strong>: cliente critico. <strong>Gialla (20-75%)</strong>: attenzione. <strong>Verde (<20%)</strong>: fedele.</p>
+        </div>
+      </div>
+    </section>
+    <!-- Main Chart -->
+    <section class="chart-section">
+      <div class="chart-header">
+        <div>
+          <h3>Andamento Ricavi</h3>
+          <p class="subtitle">Ricavi netti e utile su tutti i canali di vendita per il periodo fiscale corrente.</p>
+        </div>
+      </div>
+      <div class="chart-container">
+        <canvas #revenueChart></canvas>
+      </div>
+    </section>
+
+    <!-- Bottom Grid -->
+    <div class="bottom-grid">
+    <div class="stats-grid">
+      <!-- Top Performer -->
+      <section class="performers-section">
+        <div class="section-header">
+          <h3>Top Performer</h3>
+          <div class="tab-controls">
+            <button [class.active]="activeTab === 'TOP_CUSTOMERS'" (click)="setTab('TOP_CUSTOMERS')">Clienti</button>
+            <button [class.active]="activeTab === 'TOP_ITEMS'" (click)="setTab('TOP_ITEMS')">Prodotti</button>
+            <button [class.active]="activeTab === 'TOP_AREA_MANAGERS'" (click)="setTab('TOP_AREA_MANAGERS')">Manager</button>
+          </div>
+        </div>
+        <div class="performer-list">
+          @for (item of getVisiblePerformers(); track item.identifier) {
+            <div class="performer-item">
+              <div class="performer-info">
+                <div class="avatar-small">{{ item.name.substring(0, 2) }}</div>
+                <div>
+                  <p class="name">{{ item.name }}</p>
+                  <p class="sub">{{ item.count }} ordini</p>
+                </div>
+              </div>
+              <div class="performer-stats">
+                <p class="value">{{ item.totalRevenue | currency:'EUR':'symbol':'1.0-0' }}</p>
+                <div class="progress-bar"><div class="progress" [style.width.%]="getPerformerWidth(item.totalRevenue)"></div></div>
+              </div>
+            </div>
+          }
+        </div>
+        @if (topPerformers && topPerformers.entries.length > 5) {
+          <button class="expand-btn" (click)="togglePerformers()">
+            {{ showAllPerformers ? 'Mostra meno' : 'Vedi i Top 10' }}
+            <svg [style.transform]="showAllPerformers ? 'rotate(180deg)' : 'none'" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+        }
+      </section>
+
+      <!-- Churn Risk -->
+      <section class="performers-section churn-section">
+        <div class="section-header">
+          <h3>Rischio Abbandono (Churn)</h3>
+          <span class="badge-risk">Alert Critici</span>
+        </div>
+        <div class="performer-list">
+          @for (customer of getVisibleChurn(); track customer.customerName) {
+            <div class="performer-item">
+              <div class="performer-info">
+                <div class="avatar-small risk-avatar">{{ customer.customerName.substring(0, 2) }}</div>
+                <div>
+                  <p class="name">{{ customer.customerName }}</p>
+                  <p class="sub">Ultimo ordine: {{ customer.lastOrderDate | date:'dd/MM/yyyy' }}</p>
+                </div>
+              </div>
+              <div class="performer-stats">
+                <p class="value" [ngClass]="getRiskClass(customer.riskScore)">{{ customer.riskScore | percent }}</p>
+                <div class="progress-bar risk-bar"><div class="progress" [ngClass]="getRiskClass(customer.riskScore)" [style.width.%]="customer.riskScore * 100"></div></div>
+              </div>
+            </div>
+          }
+        </div>
+        @if (advancedForecast && advancedForecast.churnRisk.length > 5) {
+          <button class="expand-btn" (click)="toggleChurn()">
+            {{ showAllChurn ? 'Mostra meno' : 'Vedi tutti i clienti a rischio' }}
+            <svg [style.transform]="showAllChurn ? 'rotate(180deg)' : 'none'" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+        }
+      </section>
+    </div>
+
+    <!-- Recent Sales -->
+    <section class="sales-section">
+        <div class="section-header">
+          <h3>Vendite Recenti</h3>
+          <a href="#" class="view-all">Vedi tutte le transazioni</a>
+        </div>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>CLIENTE</th>
+                <th>PRODOTTO</th>
+                <th>IMPORTO</th>
+                <th>STATO</th>
+                <th>AZIONI</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (order of getVisibleSales(); track order.orderId) {
+                <tr>
+                  <td>
+                    <div class="table-user">
+                      <div class="avatar-table">{{ order.customerName.substring(0, 2) }}</div>
+                      <span>{{ order.customerName }}</span>
+                    </div>
+                  </td>
+                  <td>{{ order.itemDescription }}</td>
+                  <td class="bold">{{ order.revenue | currency:'EUR':'symbol':'1.2-2' }}</td>
+                  <td><span class="status-pill completed">COMPLETATO</span></td>
+                  <td><button class="more-btn">•••</button></td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+        @if (detailedReports.length > 5) {
+          <button class="expand-btn" (click)="toggleSales()">
+            {{ showAllSales ? 'Mostra meno' : 'Vedi tutte le transazioni' }}
+            <svg [style.transform]="showAllSales ? 'rotate(180deg)' : 'none'" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+        }
+      </section>
+    </div>
+  </main>
+</div>
